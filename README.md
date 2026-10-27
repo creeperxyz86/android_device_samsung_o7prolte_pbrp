@@ -1,5 +1,5 @@
 # Samsung Galaxy On7 [PRO] (SM-G600FY)
->**`Device tree for building TWRP`**
+>**`Device tree for building PBRP/TWRP`**
 
 >[**Kernel Source**](https://github.com/Galaxy-MSM8916/android_kernel_samsung_msm8916)
 
