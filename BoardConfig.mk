@@ -44,11 +44,11 @@ BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 # File system
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15024144
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15024144   # verify against the real partition
 BOARD_FLASH_BLOCK_SIZE := 0
 BOARD_HAS_NO_MISC_PARTITION := true
 
-# recovery
+# Recovery
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -61,4 +61,21 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_NEW_ION_HEAP := true
 TW_TARGET_USES_QCOM_BSP := false
-TW_INCLUDE_NTFS_3G := true
+TW_DEFAULT_LANGUAGE := en
+
+# Size reduction
+LZMA_RAMDISK_TARGETS := recovery
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_TWRPAPP := true
+TW_EXTRA_LANGUAGES := false
+TW_INCLUDE_NTFS_3G := false
+TW_INCLUDE_FUSE_EXFAT := false
+TW_INCLUDE_FUSE_NTFS := false
+TW_INCLUDE_REPACKTOOLS := false
+TW_INCLUDE_RESETPROP := false
+# Enable LZMA compression for the ramdisk
+TW_EXCLUDE_NANO := true
+# Strip unused languages to drastically cut down asset bloat
+TW_EXTRA_LANGUAGES := false
+# Exclude optional keyboard dictionaries or heavy assets if present
+TW_EXCLUDE_KEYBOARD_DICT := true
